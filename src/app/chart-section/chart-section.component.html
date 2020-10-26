@@ -1,0 +1,78 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <select (change)="selectStoreVisists($event)" class="classic alignRight">
+        <option *ngFor="let option of selectionList" value="{{option}}">{{option}}</option>
+        <!-- <option>No external background image</option>
+        <option>No wrapper</option> -->
+      </select>
+    </div>
+  </div>
+  <div class="row MT-15">
+    <!-- START 1st block -->
+    <div *ngFor="let head of headerList" class="col-xs-12 col-sm-12 col-md-4">
+      <div class="row">
+        <div class="col-md-12 headerStyle">
+          {{head}} Store Visits
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3 tableHeaderSection">
+          BRAND
+        </div>
+        <div class="col-xs-8 col-sm-8 col-md-8 tableHeaderSection align-items-center">
+         VISIT SHARE
+        </div>
+      </div>
+      <div *ngFor="let data of this.finalSturcturedData[head] | slice:0:5" class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3 brandbox">
+          {{data.brand_names}}
+        </div>
+        <div class="col-xs-8 col-sm-8 col-md-8 progress-box">
+          <div class="col-xs-2 col-sm-2 col-md-2">
+            <span [ngStyle]="{'color': data.color}">{{data.status}}</span>
+          </div>
+          <div class="col-xs-10 col-sm-10 col-md-10">
+            <div class="w3-progress-container w3-round-xlarge">
+              <div class="w3-progressbar w3-round-xlarge" [ngStyle]="{'width': data.percentage+'%','background-color': data.color}"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END -->
+    <!-- Dynamic Section Start -->
+    <div *ngIf="selectedStoreVisitsData.length > 0" class="col-xs-12 col-sm-12 col-md-4 responsiveAlignment">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 headerStyle">
+          {{selectedStoreVisitsData[0]?.Vertical}} Store Visits
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3 tableHeaderSection">
+          BRAND
+        </div>
+        <div class="col-xs-8 col-sm-8 col-md-8 tableHeaderSection align-items-center">
+         VISIT SHARE
+        </div>
+      </div>
+      <div *ngFor="let data of selectedStoreVisitsData | slice:0:5" class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3 brandbox">
+          {{data.brand_names}}
+        </div>
+        <div class="col-xs-8 col-sm-8 col-md-8 progress-box">
+          <div class="col-xs-2 col-sm-2 col-md-2">
+            <span [ngStyle]="{'color': data.color}">{{data.status}}</span>
+          </div>
+          <div class="col-xs-10 col-sm-10 col-md-10">
+            <div class="w3-progress-container w3-round-xlarge">
+              <div class="w3-progressbar w3-round-xlarge" [ngStyle]="{'width': data.percentage+'%','background-color': data.color}"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END -->
+  </div>
+</div>
+

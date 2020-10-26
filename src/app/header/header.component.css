@@ -1,0 +1,28 @@
+.backgroundImage{
+  background-image: url('../../assets/Artboard-4@2x1-1.jpg');
+  padding: 0px;
+  /* height: 33%; */
+  height: 202px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+ }
+
+ .PA{
+   padding: 0px;;
+ }
+
+ .align-center{
+   text-align: center;
+ }
+
+ .title-color{
+   color: #2474a9;
+ }
+
+ .font-weight-600{
+  font-weight: 600;
+ }
